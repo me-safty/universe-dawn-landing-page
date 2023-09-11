@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"rootDir": "./",
+		"baseUrl": "./"
+	},
+	"extends": "./tsconfig.json",
+	"include": [
+		"**/*.jsx",
+		"**/*.js",
+		"**/*.tsx",
+		"**/*.ts"
+	],
+	"exclude": [
+		"dist",
+		"node_modules",
+	]
+}

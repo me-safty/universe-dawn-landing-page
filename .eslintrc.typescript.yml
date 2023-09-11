@@ -1,0 +1,337 @@
+---
+parser: "@typescript-eslint/parser"
+plugins:
+  - "@typescript-eslint"
+  - typescript-sort-keys
+rules:
+  # This is overwritten by .eslintrc.react.yml
+  no-restricted-imports:
+    - 2
+    - patterns:
+        - group:
+            - "@teamparallax/microservice-idis/*"
+            - "@teamparallax/microservice-calendar/*"
+            - "@teamparallax/microservice-cms/*"
+            - "@teamparallax/microservice-communication/*"
+            - "@teamparallax/microservice-file/*"
+            - "@teamparallax/microservice-mail/*"
+            - "@teamparallax/microservice-status/*"
+            - "@teamparallax/microservice-user/*"
+            - "@teamparallax/microservice-alliance/*"
+            - "@teamparallax/microservice-fleet/*"
+            - "@teamparallax/microservice-planet/*"
+            - "@teamparallax/microservice-ruler/*"
+            - "@teamparallax/degenia-config-service/*"
+            - "@teamparallax/service-configurator/*"
+            - "@teamparallax/event-sourcer/*"
+            - "@teamparallax/api-gateway/*"
+          message: "No direct Microservice imports"
+        - group:
+            - "@teamparallax/react-components/*"
+            - "@teamparallax/degenia-components/*"
+            - "@teamparallax/ud-components/*"
+            - "@teamparallax/client-libraries/*"
+          message: "No frontend library imports"
+        - group:
+            - "@teamparallax/server-libraries/src/*"
+            - "@teamparallax/universe-dawn-common/src/*"
+            - "@teamparallax/common-libraries/src/*"
+          message: "No Source Libraries imports"
+        - group:
+            - "**/../dist"
+            - "**/../lib"
+            - "**/../build"
+          message: "No relative dist imports"
+        - group:
+            - "**/../dist"
+            - "**/../lib$"
+            - "**/../build$"
+          message: "No dist/lib/build imports - rather import from @teamparallax/the-package-you-want-to-import-from"
+        - group:
+            - "**/src"
+          message: "No source import - rather import from @teamparallax/the-package-you-want-to-import-from"
+  no-empty-function: 0
+  typescript-sort-keys/interface: 1
+  typescript-sort-keys/string-enum: 1
+  "@typescript-eslint/no-empty-function": 2
+  "@typescript-eslint/explicit-function-return-type": 2
+  "@typescript-eslint/unbound-method":
+    - 1
+    - ignoreStatic: true
+  "@typescript-eslint/typedef":
+    - 2
+    - variableDeclaration: false
+      arrayDestructuring: false
+      arrowParameter: false
+      memberVariableDeclaration: false
+      parameter: true
+      propertyDeclaration: true
+  semi: 0
+  "@typescript-eslint/semi":
+    - 1
+    - never
+  "@typescript-eslint/restrict-plus-operands": 2
+  require-await: 0
+  "@typescript-eslint/require-await": 2
+  "@typescript-eslint/require-array-sort-compare": 2
+  quotes: 0
+  "@typescript-eslint/quotes":
+    - 2
+    - double
+    - allowTemplateLiterals: true
+  "@typescript-eslint/promise-function-async": 2
+  "@typescript-eslint/prefer-string-starts-ends-with": 2
+  "@typescript-eslint/prefer-readonly": 2
+  "@typescript-eslint/prefer-optional-chain": 2
+  "@typescript-eslint/prefer-nullish-coalescing": 2
+  "@typescript-eslint/prefer-includes": 2
+  no-unused-expressions: 0
+  "@typescript-eslint/no-unused-expressions": 2
+  "@typescript-eslint/no-this-alias": 2
+  "@typescript-eslint/no-require-imports": 2
+  "@typescript-eslint/no-non-null-assertion": 0
+  "@typescript-eslint/no-misused-promises": 2
+  "@typescript-eslint/no-misused-new": 2
+  no-magic-numbers: 0
+  "@typescript-eslint/no-magic-numbers":
+    - 2
+    - ignoreNumericLiteralTypes: true
+      ignoreReadonlyClassProperties: true
+      ignoreEnums: true
+      ignore:
+        - -1
+        - 0
+        - 1
+        - 2
+        - 80
+        - 8080
+        - 3306
+        - 27017
+        - 5672
+        - 5432
+  "@typescript-eslint/no-implied-eval":
+    - 2
+  "@typescript-eslint/no-floating-promises":
+    - 2
+  no-extra-semi: 0
+  "@typescript-eslint/no-extra-semi":
+    - 2
+  no-extra-parens: 0
+  "@typescript-eslint/no-extra-parens":
+    - 2
+    - all
+    - ignoreJSX: all
+  "@typescript-eslint/no-extra-non-null-assertion":
+    - 2
+  "@typescript-eslint/no-empty-interface":
+    - 2
+    - allowSingleExtends: true
+  # wait for @link https://github.com/typescript-eslint/typescript-eslint/issues/2296
+  "@typescript-eslint/member-ordering":
+    - 0
+    - default:
+        order: alphabetically
+        memberTypes:
+          - signature
+          - public-static-field
+          - public-decorated-field
+          - public-instance-field
+          - public-abstract-field
+          - static-field
+          - instance-field
+          - abstract-field
+          - decorated-field
+          - field
+          - protected-static-field
+          - protected-decorated-field
+          - protected-instance-field
+          - protected-abstract-field
+          - protected-field
+          - private-static-field
+          - private-decorated-field
+          - private-instance-field
+          - private-abstract-field
+          - private-field
+          - public-constructor
+          - constructor
+          - protected-constructor
+          - private-constructor
+          - public-field
+          - public-static-method
+          - public-decorated-method
+          - public-instance-method
+          - public-abstract-method
+          - public-method
+          - static-method
+          - instance-method
+          - abstract-method
+          - decorated-method
+          - method
+          - protected-static-method
+          - protected-decorated-method
+          - protected-instance-method
+          - protected-abstract-method
+          - protected-method
+          - private-static-method
+          - private-decorated-method
+          - private-instance-method
+          - private-abstract-method
+          - private-method
+      interfaces: []
+  "@typescript-eslint/member-delimiter-style":
+    - 2
+    - multiline:
+        delimiter: none
+        requireLast: false
+      singleline:
+        delimiter: comma
+        requireLast: false
+  "@typescript-eslint/consistent-type-definitions":
+    - 2
+    - interface
+  "@typescript-eslint/consistent-type-assertions":
+    - 2
+    - assertionStyle: as
+      objectLiteralTypeAssertions: allow-as-parameter
+  "@typescript-eslint/await-thenable": 2
+  "@typescript-eslint/ban-ts-comment": 2
+  "@typescript-eslint/ban-types":
+    - 2
+    - types:
+        Array:
+          message: Use literal-array `[]` instead
+      extendDefaults: true
+  "@typescript-eslint/no-explicit-any":
+    - 2
+    - fixToUnknown: false
+      ignoreRestArgs: false
+  brace-style: 0
+  "@typescript-eslint/brace-style":
+    - 2
+    - stroustrup
+    - allowSingleLine: true
+  "@typescript-eslint/naming-convention":
+    - 2
+    - selector: default
+      format:
+        - strictCamelCase
+      custom:
+        regex: "^id[A-Z]"
+        match: false
+    - selector: parameter
+      types:
+        - boolean
+      format:
+        - StrictPascalCase
+      prefix:
+        - is
+        - should
+        - are
+        - does
+        - has
+        - can
+        - did
+        - will
+        - enable
+        - disable
+        - needs
+        - requires
+    - selector: variable
+      types:
+        - boolean
+      format:
+        - StrictPascalCase
+      prefix:
+        - is
+        - should
+        - are
+        - does
+        - has
+        - can
+        - did
+        - will
+        - enable
+        - disable
+        - needs
+        - requires
+    - selector: property
+      types:
+        - boolean
+      format:
+        - StrictPascalCase
+      leadingUnderscore: allow
+      prefix:
+        - is
+        - should
+        - are
+        - does
+        - has
+        - can
+        - did
+        - will
+        - enable
+        - disable
+        - needs
+        - requires
+    - selector: parameterProperty
+      types:
+        - boolean
+      format:
+        - StrictPascalCase
+      prefix:
+        - is
+        - should
+        - are
+        - does
+        - has
+        - can
+        - did
+        - will
+        - enable
+        - disable
+        - needs
+        - requires
+    - selector: variable
+      modifiers:
+        - const
+      format:
+        - StrictPascalCase
+      prefix:
+        - C
+      filter:
+        regex: "^[A-Z]"
+        match: true
+    - selector: class
+      format:
+        - StrictPascalCase
+    - selector: memberLike
+      modifiers:
+        - private
+      format:
+        - strictCamelCase
+      leadingUnderscore: allow
+    - selector: memberLike
+      format:
+        - strictCamelCase
+      leadingUnderscore: allow
+    - selector: typeAlias
+      format:
+        - StrictPascalCase
+      prefix:
+        - T
+      custom:
+        regex: "^Id[A-Z]"
+        match: false
+    - selector: typeParameter
+      format:
+        - StrictPascalCase
+    - selector: interface
+      format:
+        - StrictPascalCase
+      prefix:
+        - I
+    - selector: enum
+      format:
+        - StrictPascalCase
+      prefix:
+        - E

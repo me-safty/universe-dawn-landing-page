@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"rootDir": "./",
+		"baseUrl": "./",
+		"outDir": "./dist",
+		"paths": {},
+		"jsx": "preserve"
+	},
+	"extends": "./tsconfig.react.json",
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		"src",
+		"**/*.scss",
+		"**/*.css",
+		"types",
+		"declarations.d.ts"
+	],
+	"exclude": ["**/*.js", "babel.config.js"]
+}
